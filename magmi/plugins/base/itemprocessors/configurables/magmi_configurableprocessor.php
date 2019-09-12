@@ -37,7 +37,7 @@ class Magmi_ConfigurableItemProcessor extends Magmi_ItemProcessor
             $cond = "ea.is_user_defined=1";
             if ($this->checkMagentoVersion("1.3.x", "!=")) {
                 $cea = $this->tablename("catalog_eav_attribute");
-                $sql .= " JOIN $cea as cea ON cea.attribute_id=ea.attribute_id AND cea.is_global=1 AND cea.is_configurable=1";
+                $sql .= " JOIN $cea as cea ON cea.attribute_id=ea.attribute_id AND cea.is_global=1";
             } else {
                 $cond .= " AND ea.is_global=1";
             }
