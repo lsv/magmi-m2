@@ -39,7 +39,7 @@ class Magmi_ConfigurableItemProcessor extends Magmi_ItemProcessor
                 $cea = $this->tablename("catalog_eav_attribute");
                 $sql .= " JOIN $cea as cea ON cea.attribute_id=ea.attribute_id AND cea.is_global=1 AND cea.is_configurable=1";
             } else {
-                $cond .= " AND ea.is_global=1 AND ea.is_configurable=1";
+                $cond .= " AND ea.is_global=1";
             }
             $sql .= " WHERE $cond
 			GROUP by ea.attribute_id";
