@@ -67,7 +67,11 @@ class Magmi_ProductImportEngine extends Magmi_Engine
     //magento stock related table columns list
     private $_stockcols = array();
     //stats
-    private $_skustats = array();
+    private $_skustats = array(
+        'nsku' => 0,
+        'ok' => 0,
+        'ko' => 0,
+    );
     //handlers cache
     private $_handlercache = array();
 
