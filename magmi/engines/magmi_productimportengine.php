@@ -1905,9 +1905,8 @@ class Magmi_ProductImportEngine extends Magmi_Engine
         if (!$qty) {
             $qty = 0;
         }
-        $sql = "INSERT INTO `$css` SELECT '$pid' as product_id,ws.website_id,cis.stock_id,'$qty' as qty,? as stock_status
+        $sql = "INSERT INTO `$css` SELECT '$pid' as product_id,0,cis.stock_id,'$qty' as qty,? as stock_status
                 FROM `$cpe` as cpe
-                    JOIN " . $this->tablename("store_website") . " as ws ON ws.website_id IN (" . $this->arr2values($wsids) . ")
                     JOIN " . $this->tablename("cataloginventory_stock") . " as cis ON cis.stock_id=?
                 WHERE cpe.entity_id=?
                 ON DUPLICATE KEY UPDATE stock_status=VALUES(`stock_status`),qty=VALUES(`qty`)";
